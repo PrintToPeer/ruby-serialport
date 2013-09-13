@@ -147,7 +147,7 @@ VALUE sp_create_impl(class, _port)
    }
 
    /* enable blocking read */
-   fcntl(fd, F_SETFL, fcntl(fd, F_GETFL, 0) & ~O_NONBLOCK);
+   fcntl(fd, F_SETFL, fcntl(fd, F_GETFL, 0) & O_NONBLOCK);
 
    if (tcgetattr(fd, &params) == -1)
    {
